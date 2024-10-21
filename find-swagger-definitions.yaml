@@ -1,1 +1,52 @@
+id: find-swagger-definition
+
+info:
+  name: Find Swagger Definition Files
+  author: Enes Ismaili
+  severity: info
+  description: This template attempts to find Swagger definition files in common locations.
+
+requests:
+  - method: GET
+    path:
+      - "{{BaseURL}}/swagger/v1/swagger.json"
+      - "{{BaseURL}}/swagger/v2/swagger.json"
+      - "{{BaseURL}}/swagger/v3/swagger.json"
+      - "{{BaseURL}}/swagger.json"
+      - "{{BaseURL}}/swagger.yaml"
+      - "{{BaseURL}}/swagger/v1/swagger.yaml"
+      - "{{BaseURL}}/swagger/v2/swagger.yaml"
+      - "{{BaseURL}}/swagger/v3/swagger.yaml"
+      - "{{BaseURL}}/swagger-docs"
+      - "{{BaseURL}}/api/swagger.json"
+      - "{{BaseURL}}/api/swagger.yaml"
+      - "{{BaseURL}}/v1/swagger.json"
+      - "{{BaseURL}}/v2/swagger.json"
+      - "{{BaseURL}}/v3/swagger.json"
+      - "{{BaseURL}}/api-docs"
+      - "{{BaseURL}}/api-docs/swagger.json"
+      - "{{BaseURL}}/api-docs/swagger.yaml"
+      - "{{BaseURL}}/api/v1/swagger.json"
+      - "{{BaseURL}}/api/v2/swagger.json"
+      - "{{BaseURL}}/api/swagger/docs"
+      - "{{BaseURL}}/docs/swagger.json"
+      - "{{BaseURL}}/docs/api-docs"
+      - "{{BaseURL}}/v1/api-docs"
+      - "{{BaseURL}}/v2/api-docs"
+      - "{{BaseURL}}/swagger/docs/v1"
+      - "{{BaseURL}}/swagger/docs/v2"
+      - "{{BaseURL}}/swagger-resources"
+      - "{{BaseURL}}/openapi.json"
+      - "{{BaseURL}}/openapi.yaml"
+      - "{{BaseURL}}/openapi/v1/openapi.json"
+      - "{{BaseURL}}/openapi/v2/openapi.json"
+    matchers-condition: and
+    matchers:
+      - type: status
+        status:
+          - 200
+      - type: word
+        words:
+          - "swagger"
+          - "openapi"
 
